@@ -17,6 +17,7 @@ setup(
         'scipy',
         'pandas',
         'nltk',
+        'regex'
     ],
     extras_require={
         'dev': [

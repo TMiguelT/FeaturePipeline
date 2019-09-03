@@ -28,6 +28,9 @@ class ExtractionPipeline:
             # Trigger each processor in a cascading fashion
             self.emit(CORE, 'document', document)
 
+            for character in document:
+                self.emit(CORE, 'character', character)
+
             # Create a row using all extractors
             row = {}
             for extractor in self.extractors:

@@ -16,13 +16,18 @@ def test_two_docs():
         generators.DictionaryFreqExtractor(),
         generators.TotalSentencesExtractor(),
         generators.TotalWordsExtractor(),
-        generators.WordExtensionExtractor()
+        generators.WordExtensionExtractor(),
+        generators.BosCapitalExtractor(),
+        generators.PunctuationCountExtractor(),
+        generators.AllCapsFrequencyExtractor(),
+        generators.UpperCaseCountExtractor(),
+        generators.QuotationUseExtractor()
     ])
 
     df = pipeline.process(docs)
 
     # There should be a column for each generator (in this case)
-    assert len(df.columns) == 5
+    assert len(df.columns) == 10
 
     # There should be 2 rows
     assert len(df) == 2
